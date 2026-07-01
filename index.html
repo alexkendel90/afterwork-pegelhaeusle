@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4ecd8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Afterwork am Pegelhäusle</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -30,6 +31,18 @@
     font-family:'Nunito', sans-serif;
     color:var(--ink);
     overflow-x:hidden;
+  }
+
+  /* Overscroll-Schutzschicht: reicht weit ueber den Viewport hinaus,
+     damit beim Gummiband-Scrollen kein Browser-Grau sichtbar wird */
+  body::before{
+    content:"";
+    position:fixed;
+    left:0; right:0;
+    top:-120vh; bottom:-120vh;
+    z-index:-1;
+    background:linear-gradient(180deg,#bfe1ee 0%,#bfe1ee 38%,#fbe9c6 50%,#ffe066 62%,#ffe066 100%);
+    pointer-events:none;
   }
 
   /* ---------- 3D SCENE (permanent background) ---------- */
